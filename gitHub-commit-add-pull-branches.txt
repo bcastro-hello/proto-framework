@@ -43,7 +43,9 @@ bcastro@proto-framework:~/389078 (create) $ git remote add bootstrap-framework  
 
 bcastro@proto-framework:~/389078 (create) $ git push --all proto-framework
 
-// here can goes just an file 
+// here can goes just an file  like this:
+////bcastro@proto-framework:~/389078 (create) $ git add gitHub-commit-add-pull-branches.txt
+////bcastro@proto-framework:~/389078 (create) $  git commit -m "one single file" gitHub-commit-add-pull-branches.txt
 
 Counting objects: 130, done.
 Delta compression using up to 2 threads.
