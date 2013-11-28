@@ -1,0 +1,61 @@
+Connection Terminated. Reconnecting... Done.
+git                          
+Welcome to   Cloud9 IDE  
+                         
+sbcastro@proto-framework:~/389078 (master) $ git status
+# On branch master
+nothing to commit, working directory clean
+bcastro@proto-framework:~/389078 (master) $ git commit -a
+# On branch master
+nothing to commit, working directory clean
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+bcastro@proto-framework:~/389078 (master) $ git branch create
+bcastro@proto-framework:~/389078 (master) $ git checkout
+bcastro@proto-framework:~/389078 (master) $ git checkout master
+Already on 'master'
+bcastro@proto-framework:~/389078 (master) $ git checkout create
+Switched to branch 'create'
+bcastro@proto-framework:~/389078 (create) $ git add .
+bcastro@proto-framework:~/389078 (create) $ git remote add bootstrap-framework  https://github.com/bcastro-hello/proto-framework.git
+
+bcastro@proto-framework:~/389078 (create) $ git push --all proto-framework
+
+// here can goes just an file 
+
+Counting objects: 130, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (125/125), done.
+Writing objects: 100% (130/130), 1.07 MiB | 492 KiB/s, done.
+Total 130 (delta 24), reused 0 (delta 0)
+To git@github.com:bcastro-hello/proto-framework.git
+ * [new branch]      create -> create
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:bcastro-hello/proto-framework.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. Check out this branch and merge the remote changes
+hint: (e.g. 'git pull') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+bcastro@proto-framework:~/389078 (create) $ 
