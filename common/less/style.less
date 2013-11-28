@@ -1,0 +1,384 @@
+/* - BASE HTML TEMPLATE
+------------------------------------------------- 
+	Description: Main LESS styles
+	Author:Shane Prendergast
+	Author URL:http://www.webknit.co.uk
+	Template URL:http://base.webknit.co.uk/
+	Version:1.0
+	Notes: This is a LESS file. I use http://incident57.com/codekit/ to compile my code into CSS. You could also use JS.
+		   Bare in mind where you compile your css to, image paths etc. I like my main CSS file to be at a top level. What about you?
+		   Don't forget that boilerplate.css file is still normal css. Change it if you want.
+		   If you're unfamiliar with LESS have a read of http://lesscss.org/
+/*
+
+
+/* - CONTENTS
+-------------------------------------------------
+    - CSS Reset ............................ 1.0.
+    - HTML5 Reset .......................... 2.0.
+    - Less ................................. 3.0.
+    	- Colours .......................... 3.1.
+    	- Mixins ............................3.2.
+    	- Structural ....................... 4.1.
+    	- Structural ....................... 4.1.
+    - Global ............................... 4.0.
+    	- Structural ....................... 4.1.
+    	- Base Elements .................... 4.2.
+    	- Link Elements .................... 4.2.
+    	- Build Elements ................... 4.4.
+    - Example Section ...................... 5.0.
+    - @fontface ............................ 0.0.
+	
+*/
+
+
+
+/*********************************************
+	- 1.0 -  CSS RESET
+*********************************************/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;}
+
+
+/*********************************************
+	- 2.0 -  HTML5 RESET
+*********************************************/
+	article, aside, dialog, figure, footer, header, hgroup, nav, section {
+		display:block; 
+		zoom:1;
+	}
+	audio, canvas, video { 
+		display: inline-block; *display: inline; *zoom: 1; 
+	}
+
+/*********************************************
+	- 3.0 -  LESS
+*********************************************/
+
+	/* - 3.1. - Colours, Backgrounds, Gradients
+	------------------------------------------ */
+
+	@standard: #333333;
+	@header: #141414;
+	@link: #222;
+	@link-hover: red;
+
+	.button-gradient {
+		background-image: linear-gradient(bottom, rgb(102,102,102) 0%, rgb(157,152,152) 52%);
+		background-image: -o-linear-gradient(bottom, rgb(102,102,102) 0%, rgb(157,152,152) 52%);
+		background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 0%, rgb(157,152,152) 52%);
+		background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 0%, rgb(157,152,152) 52%);
+		background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 0%, rgb(157,152,152) 52%);
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0, rgb(102,102,102)),
+			color-stop(0.52, rgb(157,152,152))
+		);
+	}
+	.button-gradient-hover {
+		background-image: linear-gradient(bottom, rgb(157,152,152) 4%, rgb(102,102,102) 52%);
+		background-image: -o-linear-gradient(bottom, rgb(157,152,152) 4%, rgb(102,102,102) 52%);
+		background-image: -moz-linear-gradient(bottom, rgb(157,152,152) 4%, rgb(102,102,102) 52%);
+		background-image: -webkit-linear-gradient(bottom, rgb(157,152,152) 4%, rgb(102,102,102) 52%);
+		background-image: -ms-linear-gradient(bottom, rgb(157,152,152) 4%, rgb(102,102,102) 52%);
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.04, rgb(157,152,152)),
+			color-stop(0.52, rgb(102,102,102))
+		);
+	}
+	
+	/* - 3.2. - Mixins
+	------------------------------------------ */
+
+	.border-radius (@radius) {
+	  	-moz-border-radius: @radius;
+	  	-webkit-border-radius: @radius;
+	  	border-radius: @radius;
+	}
+	.border-box {
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;         /* Opera/IE 8+ */
+	}
+	.transition (@which, @speed, @method) {
+		-webkit-transition:@which @speed @method; /* Safari and Chrome */
+		-moz-transition: @which @speed @method; /* Firefox 4 */
+		-o-transition: @which @speed @method; /* Opera */
+		transition: @which @speed @method;
+	}
+
+
+
+
+/*********************************************
+	- 4.0 -  GLOBAL
+*********************************************/
+	
+	/* - 4.1. - STRUCTURAL, containers, sections
+	------------------------------------------ */
+	html { 
+		font-size: 100%; 
+		-webkit-text-size-adjust: 100%; 
+		-ms-text-size-adjust: 100%; 
+	}
+	body {
+		margin: 0;
+		line-height: 1.4;
+		font-size: 1em;
+		border-top:2px solid #8f8d8d;
+		color: @standard;
+		font-family: Geneva, Lucida Sans, Lucida Grande, Lucida Sans Unicode, Verdana, sans-serif;
+	}
+	.container {
+		max-width:1170px;
+		margin:0 auto;
+		width: 100%
+	}
+	
+
+	/* - 4.2. - BASE ELEMENTS 
+	------------------------------------------ */
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: @header;
+	}
+	h1,h2,h3,h4 {
+		margin:1em 0 0.35em 0;
+		color: @header;
+		font-family: Geneva, Tahoma, Verdana,  sans-serif;
+	}
+	h1 {
+		font-size:2em;
+	}
+	h2 {
+		font-size:1.75em;
+	}
+	h3 {
+		font-size:1.5em;
+	}
+	h4 {
+		font-size:1.4em;
+	}
+	h5 {
+		font-size:1.3em;
+	}
+	h6 {
+		font-size:1.2em;
+	}
+	small {
+		font-size:0.85em;
+	}
+	ul li {
+		list-style:none;
+	}
+	ol li {
+		list-style:none;
+	}
+	strong, b {
+		font-weight:bold;
+	}
+	em, i {
+		font-style:italic;
+	}
+	p {
+		
+	}
+	img, object, embed {
+		max-width: 100%;
+		height: auto;
+	}	
+	blockquote {
+		margin: 0 0 20px 20px;
+		padding: 9px 20px 19px;
+		background: #EBEBEB;
+		font-size: 1.1em;
+		font-style: italic;
+	}
+
+
+	
+	/* - 4.3. - LINK ELEMENTS 
+	------------------------------------------ */
+	
+	a {
+		color:lighten(@standard, 40%);
+		text-decoration:none;
+		outline: 0;
+		&:visited {
+			color:lighten(@standard, 40%);
+		}
+		&:hover {
+			color:@link-hover;
+			text-decoration:none;
+		}
+		&:active {
+			
+		}
+		&:focus {
+			
+		}
+		/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+	
+	
+	a.button {
+		.button-gradient;
+	    color: #FFFFFF;
+	    float: left;
+	    outline: 0 none;
+	    padding: 7px 15px 7px;
+	    width: auto;
+	    .border-radius (3px);
+	    display: inline-block;
+	    margin-bottom: 10px;
+	    border:1px solid #535050;
+	    &:hover {
+			.button-gradient-hover;
+			color: #ffffff;
+			text-decoration: none;
+		}
+		&:active {
+			opacity:0.9;
+		}
+	}
+	a.button-full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; 
+	}
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+	    border: 0;
+	    padding: 0;
+	}
+	
+
+
+
+	/* - 4.4. - BUILD ELEMENTS 
+	------------------------------------------ */
+	.hide {
+		display: none;
+	}
+	.center-align {
+		text-align: center;
+	}
+	input, 
+	textarea {
+		border: 1px solid #CCC;
+		padding: 6px 1%;
+		outline: none;
+		.border-radius (2px);
+		margin: 0;
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		background: white;
+	}
+	input {
+		max-width:200px;
+	}
+	textarea {
+		max-width: 400px;
+	}
+	textarea,
+	input,
+	.button {
+		.border-box;
+	}
+	
+	
+		
+	
+	
+/*********************************************
+	- 5.0 -  EXAMPLE SECTION
+*********************************************/
+
+
+	/* BASE TEMPLATE FILES (THESE CAN BE DELETED AND REPLACED WITH OWN STYLES) 
+	------------------------------------------ */
+	p {
+		margin-bottom: 1em;
+	}
+	header {
+		background: #333333;
+		height: 200px;
+		text-align: center;
+		padding-top: 30px;
+	}
+	h1,h2,h3,h4,h5,h6 {
+		border-bottom: 1px solid #EBEBEB;
+		border-bottom-style: dashed;
+		margin-bottom: 20px;
+		text-transform: uppercase;
+	}
+	.row {
+		border-top: 1px solid #EBEBEB;
+		margin: 10px 0;
+		padding: 10px 0;
+		&:first-child {
+			border-top: 0px solid #EBEBEB;
+		}
+	}
+	footer {
+		border-top: 1px solid #EBEBEB;
+		margin: 10px 0;
+		padding: 10px 0;
+		clear: both
+	}
+	.round-corner-box {
+		border:1px solid #666666;
+		.border-radius (5px);
+		padding: 10px 15px;
+		margin: 5px 0 15px ;
+	}
+	p.text-shadow {
+		text-shadow: 0px 1px 1px red;
+	}
+	.animate {
+		.transition(all, 0.3s, ease-in-out);
+		&:hover{
+			color: green;
+		}
+	}
+	/* BASE TEMPLATE STYLES END */
+
+
+
+
+
+
+
+
+/*********************************************
+	- 0.0 -  @FONTFACE
+*********************************************/
+
+
+	@font-face {
+	    font-family: 'NAME OF FONT';
+	    src: url('common/fonts/NAME OF FONT.eot');
+	    src: url('common/fonts/NAME OF FONT.eot?#iefix') format('embedded-opentype'),
+	         url('common/fonts/NAME OF FONT.woff') format('woff'),
+	         url('common/fonts/NAME OF FONT.ttf') format('truetype'),
+	         url('common/fonts/NAME OF FONT.svg#wisdom_script_airegular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	
+	}
+
+
+
+
+
+

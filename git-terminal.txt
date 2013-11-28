@@ -1,0 +1,172 @@
+#1 Add files commit to local
+git commit -a -m "txt git terminal"
+
+#2 Push your commit/messages to the host (github)
+git push
+
+#3: Add any new files as part of the commit
+#   or use git add -p to interactively select hunks to stage
+git add file1 file2 …
+
+#4: Commit to local
+git commit -m "Commit message goes here"
+
+#5: Push your commit/changes to the host (github)
+git push
+
+------------------------------------------
+
+Getting Started with Git on Mac OS X
+Posted on 14 March, 2009 by shaun
+Some Background
+
+I’ve recently switched from using SVN to using Git as my source control management tool of choice. It took a little while to get to grips with, but it rocks!
+
+Git is not an evolution of SVN. It is entirely different. Git is a distributed revision control system – everybody working on a project has their own full copy of the repository and its entire history.
+
+Git does not require the presence of a network connection: most commands in Git operate locally, allowing you to review your project history, make branches and tags, merge changes, but most importantly, allowing you to commit while offline.
+
+If you’ve used SVN you’ve probably noticed the littering of .svn folders across your entire project tree, requiring the need for an export tool to retrieve clean copies of your code, and introducing problems when you delete, rename or move files or folders in your project. Git takes a slightly more sensible approach: it creates one folder (named .git) in the root folder of your project.
+
+Git Concepts
+
+With Git there are 3 important things to be aware of: the Git object database, the “index”, and your working area.
+
+The Git object database contains a bunch of stuff that you typically don’t need to worry about. Essentially it’s the repository.
+
+Your working area is the collection of files currently sitting in your project folder. You should treat these files as if they are temporary – because they are! Things you want to keep should be committed to the repository.
+
+The Index is sometimes referred to as the Staging Area. It’s a list of what will get stored on your next commit. Conceptually it sits between your working files and the Git object database. Files that haven’t been staged to the index will be ignored when doing a commit. This gives you great control over what gets committed when.
+
+A branch is a cheap copy of a particular state of the Git object database. Branches are easy to create and switch between, giving you a safe way to try out ideas quickly and easily. Switching to another branch updates your working area to reflect the state of that branch – this is why you should consider your working area temporary.
+
+Installing Git on Mac OS X
+
+Grab and install the latest OS-X Installer from:
+
+http://code.google.com/p/git-osx-installer/
+
+Configuring Git
+
+You need to tell Git who you are – it uses this information for your commits etc.
+
+Fire up your terminal, and type:
+
+git config --global user.name "Your Name"
+git config --global user.email your@email.com
+Using Git
+
+Once Git is installed on your system, creating a Git repository is easy: open your terminal, cd into the root folder of your project, and type: git init
+
+That’s pretty much it!
+
+After initialising your Git repository, it will most likely be empty. In order to commit files to the repository you first need to “stage” them by adding them to the index. To add all the files in your current project to the index type:
+
+git add .
+To commit these files type:
+
+git commit -m "your commit message"
+To view the status of your repository type:
+
+git status
+To Summarise
+
+[Download and install Git]
+[cd into the root of your project]
+
+git init
+ls -la
+git status
+git add .
+git status
+git commit -m "a useful commit message"
+git status
+[change some files in your working area]
+
+git status
+git diff
+git commit -a -m "commit message. -a adds all files to the index"
+git status
+[delete some files from your local working area]
+
+git status
+git add -u
+git commit -m "commit message. -u adds deleted files to the index"
+git status
+Ignoring Files
+
+You will probably want to ensure than certain files don’t ever get committed to the repo:
+
+http://www.kernel.org/pub/software/scm/git/docs/gitignore.html
+
+Extra Configuration
+
+You can enabled colorful output:
+
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+Some Bundled Visual Tools
+
+gitk
+git gui
+Git Screencasts
+
+http://gitcasts.com/
+
+Installing Git on Windows
+
+http://gitcasts.com/posts/git-on-windows
+
+Some Other Git Links
+
+http://git-scm.com/
+http://www.eecs.harvard.edu/~cduan/technical/git/
+http://git.or.cz/index.html
+http://git.or.cz/course/svn.html
+http://git.or.cz/gitwiki/GitFaq
+http://learn.github.com/
+http://code.google.com/p/git-osx-installer/
+http://www.kernel.org/pub/software/scm/git/docs/user-manual.html
+http://tomayko.com/writings/the-thing-about-git
+http://video.google.com/videoplay?docid=-3999952944619245780
+Eclipse Integration
+
+Point your eclipse update manager to: http://www.jgit.org/update-site
+
+More info: http://www.jgit.org/
+
+Some Commands
+
+Add all working files to the index:
+
+git add .
+Add deleted files to the index:
+
+git add -u
+Create and switch to a new branch:
+
+git checkout -b newbranchname
+Review last commit:
+
+git show
+git show --stat
+git show --name -status
+git show HEAD
+Review commit history:
+
+git log
+git log tag..branch
+git log -10
+git log --since="May 1" --until="June 1"
+git log --author=fred
+git log -- some/file
+Creating branches:
+
+git branch name
+git branch name commit
+Switching branches:
+
+git checkout name
+git checkout -f name
+Posted in Resources, Tutorials	 | Tagged eclipse, git, mac, osx, scm, svn, tutorial	 | 23 Comments
